@@ -1,9 +1,9 @@
 import Image from "next/image";
-import TitleBackground from "./components/TitleBackground";
-import Footer from "./components/Footer";
-import MainHeader from "./components/MainHeader";
-import Sidebar from "./components/Sidebar";
-import TodoList from "./components/TodoList";
+import TitleBackground from "./components/Layout/TitleBackground";
+import Footer from "./components/Layout/Footer";
+import MainHeader from "./components/Header/MainHeader";
+import Sidebar from "./components/Sidebar/Sidebar";
+import TodoList from "./components/List/TodoList";
 
 export default function Home() {
   return (
