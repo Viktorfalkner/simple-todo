@@ -3,14 +3,7 @@
 import React, { useState } from "react";
 import DeleteButton from "./DeleteButton";
 
-const Initial_TODOs = [
-  { id: 1, text: "Dailies", isCompleted: true },
-  { id: 2, text: "Walk Dog", isCompleted: false },
-  { id: 3, text: "Take Vitamins", isCompleted: true },
-];
-
-function TodoList() {
-  const [todos, setTodos] = useState(Initial_TODOs);
+function TodoList({ todos, setTodos }) {
   return (
     <ul>
       {todos.map((item) => (

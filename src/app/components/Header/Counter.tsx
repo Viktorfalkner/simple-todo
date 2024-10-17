@@ -1,9 +1,10 @@
 import React from "react";
 
-function Counter() {
+function Counter({ todos }) {
   return (
     <p className="mr-4">
-      <b>0</b> / 0 todos completed
+      <b>{todos.filter((todo) => todo.isCompleted).length}</b> / {todos.length}{" "}
+      todos completed
     </p>
   );
 }
