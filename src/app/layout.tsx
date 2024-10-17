@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "./components/Footer";
 
 import { Inter } from "next/font/google";
 
@@ -29,16 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
         {children}
       </body>
-      <footer>
-        <small>&copy; 2024. Copyright by VikAF</small>
-        <p>
-          Version<b>1.0</b>
-        </p>
-      </footer>
     </html>
   );
 }
