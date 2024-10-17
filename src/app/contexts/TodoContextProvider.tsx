@@ -1,5 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { Todo } from "../lib/types";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 type TodoContextType = {
   todos: Todo[];
@@ -19,7 +20,17 @@ type TodosContextProviderProps = {
 const TodoContextProvider: React.FC<TodosContextProviderProps> = ({
   children,
 }: TodosContextProviderProps) => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const { isAuthenticated } = useKindeBrowserClient();
+
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const savedTodos = localStorage.getItem("todos");
+    if (savedTodos) {
+      let parsedTodos = JSON.parse(savedTodos);
+      return parsedTodos;
+    } else {
+      return [];
+    }
+  });
 
   // Derived State
   const totalNumberOfTodos = todos.length;
@@ -28,7 +39,7 @@ const TodoContextProvider: React.FC<TodosContextProviderProps> = ({
   ).length;
 
   const handleAddTodo = (todoText: string) => {
-    if (todos.length >= 3) {
+    if (todos.length >= 3 && !isAuthenticated) {
       alert("login to add more than 3 todos");
       return;
     } else if (todoText != "") {
@@ -57,6 +68,11 @@ const TodoContextProvider: React.FC<TodosContextProviderProps> = ({
       })
     );
   };
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <TodoContext.Provider
       value={{
