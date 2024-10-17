@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import { useTodoContext } from "@/app/lib/hooks";
 

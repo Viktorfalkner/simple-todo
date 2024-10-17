@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import AddTodoForm from "./AddTodoForm";
 import Button from "./Button";
-import { TodoContext } from "@/app/contexts/TodoContextProvider";
 import {
   RegisterLink,
   LoginLink,

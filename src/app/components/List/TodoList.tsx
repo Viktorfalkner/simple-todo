@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useContext, useState } from "react";
 import DeleteButton from "./DeleteButton";
 import { useTodoContext } from "@/app/lib/hooks";
 

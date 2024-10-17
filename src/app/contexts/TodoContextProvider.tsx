@@ -25,8 +25,7 @@ const TodoContextProvider: React.FC<TodosContextProviderProps> = ({
   const [todos, setTodos] = useState<Todo[]>(() => {
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
-      let parsedTodos = JSON.parse(savedTodos);
-      return parsedTodos;
+      return JSON.parse(savedTodos);
     } else {
       return [];
     }

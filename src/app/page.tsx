@@ -3,11 +3,7 @@
 import TodoContextProvider from "./contexts/TodoContextProvider";
 import Root from "./components/Root";
 
-export default function Home({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Home() {
   return (
     <TodoContextProvider>
       <Root />

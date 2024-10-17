@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import TitleBackground from "./Layout/TitleBackground";
 import Footer from "./Layout/Footer";
 import MainHeader from "./Header/MainHeader";
 import Sidebar from "./Sidebar/Sidebar";
 import TodoList from "./List/TodoList";
-import { TodoContext } from "../contexts/TodoContextProvider";
 
 function Root() {
   return (

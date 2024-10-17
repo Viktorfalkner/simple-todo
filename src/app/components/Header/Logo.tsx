@@ -1,7 +1,6 @@
 import React from "react";
 import { FaCircle } from "react-icons/fa";
 import { FaTenge } from "react-icons/fa";
-import { FaDochub } from "react-icons/fa";
 import { FaDyalog } from "react-icons/fa";
 
 function Logo() {
