@@ -1,24 +1,21 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-function AddTodoForm({ todos, setTodos }) {
+type AddTodoFormProps = {
+  handleAddTodo: (todoText: string) => void;
+};
+
+function AddTodoForm({ handleAddTodo }: AddTodoFormProps) {
   const [todoText, setTodoText] = useState("");
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        if (todoText != "") {
-          setTodos((prev) => [
-            ...prev,
-            {
-              id: prev.length + 1,
-              text: todoText,
-              isCompleted: false,
-            },
-          ]);
-          setTodoText("");
-        }
+
+        handleAddTodo(todoText);
+
+        setTodoText("");
       }}
     >
       <h2 className="font-medium text-[#231d15]"> Add a Todo</h2>
