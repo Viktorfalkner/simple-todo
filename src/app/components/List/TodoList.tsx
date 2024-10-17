@@ -1,20 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DeleteButton from "./DeleteButton";
-import { Todo } from "@/app/page";
+import { useTodoContext } from "@/app/lib/hooks";
 
-type TodoListProps = {
-  todos: Todo[];
-  handleDeleteTodo: (id: number) => void;
-  handleToggleTodo: (id: number) => void;
-};
-
-function TodoList({
-  todos,
-  handleToggleTodo,
-  handleDeleteTodo,
-}: TodoListProps) {
+function TodoList() {
+  const { todos, handleToggleTodo, handleDeleteTodo } = useTodoContext();
   return (
     <ul>
       {todos.length === 0 && (
@@ -32,7 +23,7 @@ function TodoList({
           <span className={`${todo.isCompleted && "line-through text-[#ccc]"}`}>
             {todo.text}
           </span>
-          <DeleteButton id={todo.id} handleDeleteTodo={handleDeleteTodo} />
+          <DeleteButton id={todo.id} onDeleteTodo={handleDeleteTodo} />
         </li>
       ))}
     </ul>

@@ -1,15 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import AddTodoForm from "./AddTodoForm";
 import Button from "./Button";
+import { TodoContext } from "@/app/contexts/TodoContextProvider";
 
-type SidebarProps = {
-  handleAddTodo: (todoText: string) => void;
-};
-
-function Sidebar({ handleAddTodo }: SidebarProps) {
+function Sidebar() {
   return (
     <section className="flex flex-col col-[2/3] row-[2/3] bg-[#f3f9ff] border-l border-black/[0.08] px-[25px] pt-[18px] pb-[28px]">
-      <AddTodoForm handleAddTodo={handleAddTodo} />
+      <AddTodoForm />
 
       <div className="mt-auto flex flex-col gap-2">
         <Button buttonType="secondary">Login</Button>
